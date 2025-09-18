@@ -1,9 +1,10 @@
 :root {
   --accent: #83b692;
   --accent-dark: #52796f;
-  --background: #f9f9f9;
-  --text: #222;
+  --background: #01261C;
+  --text: #000000;
 }
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -195,4 +196,30 @@ footer {
   section {
     padding: 0 3vw;
   }
+}
+.service .variants {
+    margin-top: 5px;
+}
+.price-old {
+  text-decoration: line-through;
+  color: #e0c27177;
+  margin-right: 6px;
+}
+.price-new {
+  color: #fff7d9;
+    font-weight: bold;}
+
+#contacts .contacts-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#contacts .contacts-text {
+  flex: 1;
+}
+
+#contacts .contacts-map {
+  flex: 0 0 300px;
 }
