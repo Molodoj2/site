@@ -87,7 +87,15 @@ nav button:hover::after {
 
 .hero {
   position: relative;
-  text-align: center; 
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 .btn-container {
