@@ -279,21 +279,61 @@ input:focus, select:focus {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .gallery-grid img {
   width: 100%;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  object-fit: cover;
   aspect-ratio: 4/3;
-  transition: transform .25s ease;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .35s ease, filter .35s ease;
 }
+
 .gallery-grid img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  filter: brightness(0.92);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .18s ease, visibility .18s;
+}
+
+#lightbox.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#lightbox img {
+  max-width: 50vw;      /* саме: половина ширини екрану */
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  object-fit: contain;
+}
+
+#close {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  font-size: 1.8rem;
+  background: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
 }
 
 .contacts-flex {
