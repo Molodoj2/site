@@ -140,10 +140,9 @@ h1, h2, h3 { color: var(--accent); font-weight: 700; line-height: 1.2; }
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 40px;
   margin-top: 20px;
-  justify-items: center; /* Центрує в клітинці */
+  justify-items: center; 
 }
 
-/* Картка людини */
 .person {
   text-align: center;
   background: var(--card);
@@ -169,7 +168,6 @@ h1, h2, h3 { color: var(--accent); font-weight: 700; line-height: 1.2; }
   box-shadow: var(--shadow-sm);
 }
 
-/* 📱 Адаптація: на дуже малих екранах — 2 в ряд */
 @media (max-width: 480px) {
   .about-flex, .services-list, .reviews-list, .contacts-flex {
     grid-template-columns: repeat(2, 1fr);
@@ -200,15 +198,14 @@ h1, h2, h3 { color: var(--accent); font-weight: 700; line-height: 1.2; }
 }
 
 
-.service .btn{
-  margin-top: auto;        
-  align-self: flex-start;  
+.service .btn {
+  margin: auto auto 0; 
   text-decoration: none;
   font-weight: 700;
-  color: var(--accent);
   border-radius: 12px;
   background: var(--accent);
   color: #fff;
+  display: block;       
 }
 
 
@@ -283,9 +280,32 @@ input:focus, select:focus { border-color: var(--accent); outline: none; }
 }
 
 .contacts-flex {
-
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+}
+
+/* Адаптив для мобільних */
+@media (max-width: 768px) {
+  .contacts-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacts-info,
+  .contacts-map {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .contacts-info p {
+    font-size: 1.1rem;
+  }
+
+  .contacts-map iframe {
+    height: 250px;
+  }
 }
 
 .contacts-info {
