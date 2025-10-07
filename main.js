@@ -36,14 +36,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closeBtn.addEventListener('click', close);
 
-  // Закрити клікнувши поза картинкою
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) close();
   });
 
-  // Клавіші: Esc закрити
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('visible')) return;
     if (e.key === 'Escape') close();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".service").forEach(service => {
+    const key = service.dataset.service;
+    const list = service.querySelector(".price-list");
+
+    if (prices[key]) {
+      list.innerHTML = prices[key].map(p => {
+        const discounted = (p.price * (1 - DISCOUNT)).toFixed(2);
+        return `
+          <div>
+            <span class="old-price">${p.price.toFixed(2)} zł</span>
+            <span class="promo-price">${discounted} zł</span> / ${p.time}
+          </div>
+        `;
+      }).join("");
+    }
   });
 });
