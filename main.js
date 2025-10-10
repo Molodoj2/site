@@ -1,4 +1,4 @@
-// Константи
+// --- Константи ---
 const DISCOUNT = 0.20; // 20%
 
 const prices = {
@@ -20,18 +20,12 @@ const prices = {
   "masaz-twarzy": [
     { time: "1h 30min", price: 200.00 }
   ],
-  "masaz-price-1h": [
-    { time: "1h", price: 150.00 }
-  ],
   "masaz-glowy": [
-    { time: "30min", price: 90.00 }
-  ],
-  "masaz-stop-40min": [
     { time: "30min", price: 90.00 }
   ]
 };
 
-// Глобальні змінні для галереї
+// --- Глобальний стан галереї ---
 let galleryState = {
   currentIndex: 0,
   images: [],
@@ -39,7 +33,7 @@ let galleryState = {
   lightboxImg: null
 };
 
-// Ініціалізація після завантаження DOM
+// --- Ініціалізація після завантаження ---
 document.addEventListener('DOMContentLoaded', () => {
   initPrices();
   initGallery();
@@ -48,122 +42,92 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
 });
 
-// Функція для ініціалізації цін
+// --- Ініціалізація цін ---
 function initPrices() {
   document.querySelectorAll(".service").forEach(service => {
     const key = service.dataset.service;
     const list = service.querySelector(".price-list");
 
-    if (prices[key] && list) {
-      list.innerHTML = prices[key].map(p => {
-        const discounted = (p.price * (1 - DISCOUNT)).toFixed(2);
-        return `
-          <div style="display: flex; justify-content: space-between; align-items: center; margin: 8px 0; padding: 8px; background: rgba(227, 189, 130, 0.05); border-radius: 6px;">
-            <span style="text-decoration: line-through; opacity: 0.6; font-size: 0.9rem;">${p.price.toFixed(2)} zł</span>
-            <span style="color: var(--accent); font-weight: bold; font-size: 1.1rem;">${discounted} zł</span>
-            <span style="opacity: 0.8;">${p.time}</span>
-          </div>
-        `;
-      }).join("");
-    }
+    if (!prices[key] || !list) return;
+
+    list.innerHTML = prices[key].map(p => {
+      const discounted = (p.price * (1 - DISCOUNT)).toFixed(2);
+      return `
+        <div class="price-item">
+          <span class="old-price">${p.price.toFixed(2)} zł</span>
+          <span class="new-price">${discounted} zł</span>
+          <span class="time">${p.time}</span>
+        </div>
+      `;
+    }).join("");
   });
 }
 
-// Функція для ініціалізації галереї (горизонтальний скрол + lightbox)
+// --- Ініціалізація галереї ---
 function initGallery() {
   const galleryScroll = document.querySelector('.gallery-scroll');
   const galleryItems = document.querySelectorAll('.gallery-item');
   const scrollLeftBtn = document.querySelector('.scroll-left');
   const scrollRightBtn = document.querySelector('.scroll-right');
-  
+
   galleryState.lightbox = document.getElementById('lightbox');
   galleryState.lightboxImg = document.getElementById('lightbox-img');
+
+  if (!galleryScroll || !galleryItems.length || !galleryState.lightbox) return;
+
   const closeBtn = document.getElementById('close');
   const prevBtn = document.querySelector('.lightbox-prev');
   const nextBtn = document.querySelector('.lightbox-next');
   const currentImageSpan = document.getElementById('current-image');
   const totalImagesSpan = document.getElementById('total-images');
 
-  // Перевірка наявності елементів
-  if (!galleryScroll || !galleryState.lightbox || !galleryState.lightboxImg) return;
+  galleryState.images = Array.from(galleryItems)
+    .map(i => i.querySelector('img')?.src)
+    .filter(Boolean);
 
-  // Збираємо зображення
-  galleryState.images = Array.from(galleryItems).map(item => {
-    const img = item.querySelector('img');
-    return img ? img.src : '';
-  }).filter(src => src !== '');
+  if (totalImagesSpan) totalImagesSpan.textContent = galleryState.images.length;
 
-  if (totalImagesSpan) {
-    totalImagesSpan.textContent = galleryState.images.length;
-  }
+  const scrollByAmount = 425;
 
-  // Горизонтальний скрол
-  if (scrollLeftBtn) {
-    scrollLeftBtn.addEventListener('click', () => {
-      galleryScroll.scrollBy({
-        left: -425,
-        behavior: 'smooth'
-      });
-    });
-  }
+  scrollLeftBtn?.addEventListener('click', () => {
+    galleryScroll.scrollBy({ left: -scrollByAmount, behavior: 'smooth' });
+  });
 
-  if (scrollRightBtn) {
-    scrollRightBtn.addEventListener('click', () => {
-      galleryScroll.scrollBy({
-        left: 425,
-        behavior: 'smooth'
-      });
-    });
-  }
+  scrollRightBtn?.addEventListener('click', () => {
+    galleryScroll.scrollBy({ left: scrollByAmount, behavior: 'smooth' });
+  });
 
-  // Відкриття lightbox при кліку на зображення
   galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => openLightbox(index));
   });
 
-  // Закриття lightbox
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeLightbox);
-  }
+  closeBtn?.addEventListener('click', closeLightbox);
+  prevBtn?.addEventListener('click', showPrevImage);
+  nextBtn?.addEventListener('click', showNextImage);
 
-  // Навігація в lightbox
-  if (prevBtn) {
-    prevBtn.addEventListener('click', showPrevImage);
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', showNextImage);
-  }
-
-  // Закриття при кліку на фон
-  galleryState.lightbox.addEventListener('click', (e) => {
-    if (e.target === galleryState.lightbox) {
-      closeLightbox();
-    }
+  galleryState.lightbox.addEventListener('click', e => {
+    if (e.target === galleryState.lightbox) closeLightbox();
   });
 
-  // Керування клавішами
   document.addEventListener('keydown', handleLightboxKeys);
 
-  // Блокування скролу колесом в lightbox
-  galleryState.lightbox.addEventListener('wheel', (e) => {
-    e.preventDefault();
-  }, { passive: false });
+  let startX = 0;
+  galleryState.lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  galleryState.lightbox.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) > 50) diff > 0 ? showPrevImage() : showNextImage();
+  });
 
-  // Оновлення лічильника
   function updateCounter() {
-    if (currentImageSpan) {
-      currentImageSpan.textContent = galleryState.currentIndex + 1;
-    }
+    if (currentImageSpan) currentImageSpan.textContent = galleryState.currentIndex + 1;
   }
 
-  // Функції для lightbox
   function openLightbox(index) {
     galleryState.currentIndex = index;
-    galleryState.lightboxImg.src = galleryState.images[galleryState.currentIndex];
-    updateCounter();
+    galleryState.lightboxImg.src = galleryState.images[index];
     galleryState.lightbox.classList.add('visible');
     document.body.style.overflow = 'hidden';
+    updateCounter();
   }
 
   function closeLightbox() {
@@ -171,7 +135,7 @@ function initGallery() {
     setTimeout(() => {
       galleryState.lightbox.classList.remove('visible', 'closing');
       document.body.style.overflow = '';
-    }, 300);
+    }, 250);
   }
 
   function showNextImage() {
@@ -188,34 +152,21 @@ function initGallery() {
 
   function handleLightboxKeys(e) {
     if (!galleryState.lightbox.classList.contains('visible')) return;
-    
-    switch(e.key) {
-      case 'Escape':
-        closeLightbox();
-        break;
-      case 'ArrowRight':
-        showNextImage();
-        break;
-      case 'ArrowLeft':
-        showPrevImage();
-        break;
-    }
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNextImage();
+    if (e.key === 'ArrowLeft') showPrevImage();
   }
-  let startX = 0;
-galleryState.lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-galleryState.lightbox.addEventListener('touchend', e => {
-  const diff = e.changedTouches[0].clientX - startX;
-  if (Math.abs(diff) > 50) diff > 0 ? showPrevImage() : showNextImage();
-});
 }
 
-// Функція для приховування/показування хедера при скролі
+// --- Приховування/показ хедера ---
 function initHeaderScroll() {
   const header = document.querySelector('header');
   if (!header) return;
 
   let lastScroll = 0;
   let ticking = false;
+
+  header.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
 
   function updateHeader() {
     const currentScroll = window.pageYOffset;
@@ -225,10 +176,8 @@ function initHeaderScroll() {
       header.style.boxShadow = 'none';
     } else {
       if (currentScroll > lastScroll && currentScroll > 100) {
-        // Скрол вниз — ховаємо хедер
         header.style.transform = 'translateY(-100%)';
       } else {
-        // Скрол вгору — показуємо хедер
         header.style.transform = 'translateY(0)';
         header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.4)';
       }
@@ -244,57 +193,45 @@ function initHeaderScroll() {
       ticking = true;
     }
   });
-
-  // Додаємо transition для плавності
-  header.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
 }
 
-// Функція для плавного скролу до секцій
+// --- Плавний скрол ---
 function initSmoothScroll() {
-  document.querySelectorAll('nav button, .logo').forEach(element => {
-    element.addEventListener('click', function(e) {
-      const href = this.getAttribute('onclick');
-      if (href && href.includes('#')) {
-        e.preventDefault();
-        const targetId = href.match(/#([^']+)/)[1];
-        const target = document.getElementById(targetId);
-        
-        if (target) {
-          const headerOffset = 80;
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  document.querySelectorAll('nav button, .logo').forEach(el => {
+    el.addEventListener('click', e => {
+      const href = el.getAttribute('onclick');
+      if (!href || !href.includes('#')) return;
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
+      e.preventDefault();
+      const match = href.match(/#([\w-]+)/);
+      if (!match) return;
+
+      const target = document.getElementById(match[1]);
+      if (!target) return;
+
+      const headerOffset = 80;
+      const offset = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
     });
   });
 }
 
-// Анімація появи елементів при скролі
+// --- Анімації при скролі ---
 function initScrollAnimations() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
+  const elements = document.querySelectorAll('.service, .person, .gallery-item');
+  if (!elements.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  // Спостереження за елементами
-  const animatedElements = document.querySelectorAll('.service, .person, .gallery-item');
-  
-  animatedElements.forEach(el => {
+  elements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
