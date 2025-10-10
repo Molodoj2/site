@@ -350,39 +350,29 @@ h2::after {
 
 /* Gallery */
 
+#gallery {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    #gallery {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+.gallery-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
 
-    h2 {
-      text-align: center;
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      color: var(--primary);
-      margin-bottom: 15px;
-      font-weight: 700;
-      letter-spacing: -1px;
-    }
+/* Horizontal Scroll Gallery */
+.gallery-container {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
 
-    .gallery-subtitle {
-      text-align: center;
-      color: #666;
-      font-size: clamp(0.95rem, 3vw, 1.1rem);
-      margin-bottom: 40px;
-      padding: 0 20px;
-    }
-
-    /* Horizontal Scroll Gallery */
-    .gallery-container {
-      position: relative;
-      overflow: hidden;
-      padding: 20px 0;
-    }
-
-    .gallery-scroll {
-      display: flex;
+.gallery-scroll {
+  display: flex;
       gap: 20px;
       overflow-x: auto;
       overflow-y: hidden;
@@ -447,66 +437,6 @@ h2::after {
 
     .gallery-item:active img {
       transform: scale(0.98);
-    }
-/* Галерея */
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  padding: 20px;
-}
-
-.gallery-item {
-  flex: 1 1 300px;
-  max-width: 400px;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* Для мобільних */
-@media (max-width: 768px) {
-  .gallery-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
-  }
-
-  .gallery-item {
-    width: 90%;
-    max-width: 350px;
-  }
-}
-
-
-    /* Zoom Icon */
-    .zoom-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: var(--primary);
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
     }
 
     .gallery-item:active .zoom-icon {
@@ -636,18 +566,7 @@ h2::after {
     .lightbox-next {
       right: 15px;
     }
-#lightbox.visible {
-  animation: fadeIn 0.3s ease forwards;
-}
 
-#lightbox.closing {
-  animation: fadeOut 0.3s ease forwards;
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; visibility: hidden; }
-}
     /* Close Button */
     #close {
       position: absolute;
@@ -715,108 +634,8 @@ h2::after {
       50% { opacity: 1; }
     }
 
-    /* Desktop styles */
-    @media (min-width: 769px) {
-      body {
-        padding: 60px 20px;
-      }
 
-      .gallery-item {
-        flex: 0 0 400px;
-        height: 500px;
-      }
 
-      .gallery-item:hover::before {
-        opacity: 1;
-      }
-
-      .gallery-item:hover img {
-        transform: scale(1.08);
-      }
-
-      .gallery-item:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .gallery-item:hover .zoom-icon {
-        opacity: 1;
-      }
-
-      .scroll-arrow {
-        user-select: none;
-        -webkit-user-select: none;
-    }
-
-      .scroll-indicator {
-        display: none;
-      }
-
-      .lightbox-nav:hover {
-        background: var(--accent);
-        border-color: var(--accent);
-        transform: translateY(-50%) scale(1.1);
-      }
-
-      #close:hover {
-        background: var(--accent);
-        border-color: var(--accent);
-        transform: rotate(90deg);
-      }
-
-      .lightbox-prev {
-        left: 30px;
-      }
-
-      .lightbox-next {
-        right: 30px;
-      }
-
-      #close {
-        top: 30px;
-        right: 30px;
-        width: 55px;
-        height: 55px;
-        font-size: 2.5rem;
-      }
-
-      .lightbox-nav {
-        width: 55px;
-        height: 55px;
-      }
-
-      .image-counter {
-        bottom: 30px;
-        font-size: 1rem;
-        padding: 12px 24px;
-      }
-    }
-
-    /* Tablet adjustments */
-    @media (min-width: 481px) and (max-width: 768px) {
-      .gallery-item {
-        flex: 0 0 min(70vw, 350px);
-        height: clamp(380px, 55vh, 450px);
-      }
-    }
-
-    /* Small mobile adjustments */
-  @media (max-width: 400px) {
-    .gallery-scroll {
-      overflow-x: scroll;
-      gap: 12px;
-      padding: 10px;
-    }
-  }
-
-      h2 {
-        font-size: 1.6rem;
-      }
-
-      .gallery-subtitle {
-        font-size: 0.9rem;
-      }
-    
 
 
 /* Contact */
