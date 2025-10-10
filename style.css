@@ -597,7 +597,18 @@ h2::after {
     .lightbox-next {
       right: 15px;
     }
+#lightbox.visible {
+  animation: fadeIn 0.3s ease forwards;
+}
 
+#lightbox.closing {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
     /* Close Button */
     #close {
       position: absolute;
@@ -694,8 +705,9 @@ h2::after {
       }
 
       .scroll-arrow {
-        display: flex;
-      }
+        user-select: none;
+        -webkit-user-select: none;
+    }
 
       .scroll-indicator {
         display: none;
@@ -750,11 +762,13 @@ h2::after {
     }
 
     /* Small mobile adjustments */
-    @media (max-width: 380px) {
-      .gallery-item {
-        flex: 0 0 90vw;
-        height: clamp(320px, 55vh, 400px);
-      }
+  @media (max-width: 400px) {
+    .gallery-scroll {
+      overflow-x: scroll;
+      gap: 12px;
+      padding: 10px;
+    }
+  }
 
       h2 {
         font-size: 1.6rem;
@@ -763,7 +777,7 @@ h2::after {
       .gallery-subtitle {
         font-size: 0.9rem;
       }
-    }
+    
 
 
 /* Contact */
