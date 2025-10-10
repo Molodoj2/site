@@ -31,12 +31,21 @@ const prices = {
   ]
 };
 
+// Глобальні змінні для галереї
+let galleryState = {
+  currentIndex: 0,
+  images: [],
+  lightbox: null,
+  lightboxImg: null
+};
+
 // Ініціалізація після завантаження DOM
 document.addEventListener('DOMContentLoaded', () => {
   initPrices();
   initGallery();
   initHeaderScroll();
   initSmoothScroll();
+  initScrollAnimations();
 });
 
 // Функція для ініціалізації цін
@@ -60,78 +69,135 @@ function initPrices() {
   });
 }
 
-// Функція для ініціалізації галереї
+// Функція для ініціалізації галереї (горизонтальний скрол + lightbox)
 function initGallery() {
-  const grid = document.querySelector('.gallery-grid');
-  if (!grid) return;
-
-  const imgs = Array.from(grid.querySelectorAll('img'));
-  if (imgs.length === 0) return;
-
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
+  const galleryScroll = document.querySelector('.gallery-scroll');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const scrollLeftBtn = document.querySelector('.scroll-left');
+  const scrollRightBtn = document.querySelector('.scroll-right');
+  
+  galleryState.lightbox = document.getElementById('lightbox');
+  galleryState.lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.getElementById('close');
+  const prevBtn = document.querySelector('.lightbox-prev');
+  const nextBtn = document.querySelector('.lightbox-next');
+  const currentImageSpan = document.getElementById('current-image');
+  const totalImagesSpan = document.getElementById('total-images');
 
-  if (!lightbox || !lightboxImg || !closeBtn) return;
+  // Перевірка наявності елементів
+  if (!galleryScroll || !galleryState.lightbox || !galleryState.lightboxImg) return;
 
-  let currentIndex = -1;
+  // Збираємо зображення
+  galleryState.images = Array.from(galleryItems).map(item => {
+    const img = item.querySelector('img');
+    return img ? img.src : '';
+  }).filter(src => src !== '');
 
+  if (totalImagesSpan) {
+    totalImagesSpan.textContent = galleryState.images.length;
+  }
+
+  // Горизонтальний скрол
+  if (scrollLeftBtn) {
+    scrollLeftBtn.addEventListener('click', () => {
+      galleryScroll.scrollBy({
+        left: -425,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  if (scrollRightBtn) {
+    scrollRightBtn.addEventListener('click', () => {
+      galleryScroll.scrollBy({
+        left: 425,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // Відкриття lightbox при кліку на зображення
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+
+  // Закриття lightbox
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeLightbox);
+  }
+
+  // Навігація в lightbox
+  if (prevBtn) {
+    prevBtn.addEventListener('click', showPrevImage);
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', showNextImage);
+  }
+
+  // Закриття при кліку на фон
+  galleryState.lightbox.addEventListener('click', (e) => {
+    if (e.target === galleryState.lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Керування клавішами
+  document.addEventListener('keydown', handleLightboxKeys);
+
+  // Блокування скролу колесом в lightbox
+  galleryState.lightbox.addEventListener('wheel', (e) => {
+    e.preventDefault();
+  }, { passive: false });
+
+  // Оновлення лічильника
+  function updateCounter() {
+    if (currentImageSpan) {
+      currentImageSpan.textContent = galleryState.currentIndex + 1;
+    }
+  }
+
+  // Функції для lightbox
   function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = imgs[index].dataset.large || imgs[index].src;
-    lightbox.classList.add('visible');
+    galleryState.currentIndex = index;
+    galleryState.lightboxImg.src = galleryState.images[galleryState.currentIndex];
+    updateCounter();
+    galleryState.lightbox.classList.add('visible');
     document.body.style.overflow = 'hidden';
-    lightbox.setAttribute('aria-hidden', 'false');
   }
 
   function closeLightbox() {
-    lightbox.classList.remove('visible');
-    lightboxImg.src = '';
+    galleryState.lightbox.classList.remove('visible');
     document.body.style.overflow = '';
-    lightbox.setAttribute('aria-hidden', 'true');
-    currentIndex = -1;
   }
 
-  function nextImage() {
-    if (currentIndex < imgs.length - 1) {
-      openLightbox(currentIndex + 1);
-    }
+  function showNextImage() {
+    galleryState.currentIndex = (galleryState.currentIndex + 1) % galleryState.images.length;
+    galleryState.lightboxImg.src = galleryState.images[galleryState.currentIndex];
+    updateCounter();
   }
 
-  function prevImage() {
-    if (currentIndex > 0) {
-      openLightbox(currentIndex - 1);
-    }
+  function showPrevImage() {
+    galleryState.currentIndex = (galleryState.currentIndex - 1 + galleryState.images.length) % galleryState.images.length;
+    galleryState.lightboxImg.src = galleryState.images[galleryState.currentIndex];
+    updateCounter();
   }
 
-  // Відкриття зображення
-  imgs.forEach((img, i) => {
-    img.addEventListener('click', () => openLightbox(i));
-    img.style.cursor = 'pointer';
-  });
-
-  // Закриття
-  closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Навігація клавішами
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('visible')) return;
+  function handleLightboxKeys(e) {
+    if (!galleryState.lightbox.classList.contains('visible')) return;
     
     switch(e.key) {
       case 'Escape':
         closeLightbox();
         break;
       case 'ArrowRight':
-        nextImage();
+        showNextImage();
         break;
       case 'ArrowLeft':
-        prevImage();
+        showPrevImage();
         break;
     }
-  });
+  }
 }
 
 // Функція для приховування/показування хедера при скролі
@@ -200,24 +266,24 @@ function initSmoothScroll() {
 }
 
 // Анімація появи елементів при скролі
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
 
-// Спостереження за елементами
-document.addEventListener('DOMContentLoaded', () => {
-  const animatedElements = document.querySelectorAll('.service, .person, .gallery-grid img');
+  // Спостереження за елементами
+  const animatedElements = document.querySelectorAll('.service, .person, .gallery-item');
   
   animatedElements.forEach(el => {
     el.style.opacity = '0';
@@ -225,4 +291,4 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
-});
+}
