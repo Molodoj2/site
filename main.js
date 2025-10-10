@@ -20,7 +20,13 @@ const prices = {
   "masaz-twarzy": [
     { time: "1h 30min", price: 200.00 }
   ],
+  "masaz-price-1h": [
+    { time: "1h", price: 150.00 }
+  ],
   "masaz-glowy": [
+    { time: "30min", price: 90.00 }
+  ],
+  "masaz-stop-40min": [
     { time: "30min", price: 90.00 }
   ]
 };
