@@ -167,8 +167,11 @@ function initGallery() {
   }
 
   function closeLightbox() {
-    galleryState.lightbox.classList.remove('visible');
-    document.body.style.overflow = '';
+    galleryState.lightbox.classList.add('closing');
+    setTimeout(() => {
+      galleryState.lightbox.classList.remove('visible', 'closing');
+      document.body.style.overflow = '';
+    }, 300);
   }
 
   function showNextImage() {
@@ -198,6 +201,12 @@ function initGallery() {
         break;
     }
   }
+  let startX = 0;
+galleryState.lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+galleryState.lightbox.addEventListener('touchend', e => {
+  const diff = e.changedTouches[0].clientX - startX;
+  if (Math.abs(diff) > 50) diff > 0 ? showPrevImage() : showNextImage();
+});
 }
 
 // Функція для приховування/показування хедера при скролі
