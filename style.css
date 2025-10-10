@@ -448,6 +448,45 @@ h2::after {
     .gallery-item:active img {
       transform: scale(0.98);
     }
+/* Галерея */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery-item {
+  flex: 1 1 300px;
+  max-width: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Для мобільних */
+@media (max-width: 768px) {
+  .gallery-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .gallery-item {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
 
     /* Zoom Icon */
     .zoom-icon {
