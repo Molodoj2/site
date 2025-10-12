@@ -122,23 +122,12 @@ nav button:hover::after {
   overflow: hidden;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  
-  animation: pulse 8s ease-in-out infinite;
-  z-index: 1;
-}
-
 .hero img,
 .hero h1,
 .hero p {
   position: relative;
   z-index: 2;
+  text-justify: inter-word; 
 }
 
 
@@ -175,13 +164,7 @@ nav button:hover::after {
   line-height: 1.2;
 }
 
-.hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  color: rgba(244, 244, 244, 0.8);
-  margin-top: 20px;
-  position: relative;
-  z-index: 1;
-}
+
 
 /* Sections */
 section {
@@ -329,6 +312,8 @@ h2::after {
   line-height: 1.7;
   margin-bottom: 15px;
   flex-grow: 1;
+  text-align: justify;
+  text-justify: inter-word; 
 }
 
 .price-list {
@@ -337,7 +322,30 @@ h2::after {
   background: rgba(227, 189, 130, 0.08);
   border-radius: 8px;
   border-left: 3px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
+
+.price-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  align-items: center;
+  font-size: 1rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  text-align: left;
+}
+
+.new-price {
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+}
+
 
 .actions {
   color: var(--accent);
@@ -348,9 +356,8 @@ h2::after {
   border-top: 1px solid rgba(227, 189, 130, 0.2);
 }
 
-/* Gallery */
 
-/* === GALLERY === */
+/* Gallery */
 
 #gallery {
   max-width: 100%;
