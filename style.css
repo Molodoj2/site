@@ -28,7 +28,7 @@ body {
 /* Header */
 header {
   background: rgba(26, 41, 2, 0.95);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(75%);
   padding: 20px clamp(20px, 5vw, 60px);
   position: sticky;
   top: 0;
@@ -73,6 +73,7 @@ nav {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  
 }
 
 nav button {
