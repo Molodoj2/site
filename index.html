@@ -8,21 +8,21 @@
     <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/Logo1.jpg" type="image/jpg">
   <script src="main.js"></script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17560367104"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-17560367104');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17560367104"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17560367104');
+  </script>
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2880161237484832"
      crossorigin="anonymous"></script>
 </head>
-<body>
 
+<body>
 <header>
   <div class="header-content">
     <div class="logo" onclick="location.href='#home'">
@@ -47,8 +47,6 @@
   <script type="text/javascript" src="https://booksy.com/widget/code.js?id=303989&country=pl&lang=pl"></script>
 </section>
 
-
-
 <section id="about">
   <h2>O nas</h2>
   <p style="text-align: justify;">Twój Masażysta to miejsce, gdzie profesjonalizm spotyka się z prawdziwym relaksem. Salon wyróżnia się indywidualnym podejściem do klienta, przyjazną atmosferą oraz wysokim poziomem umiejętności masażystów. To idealne miejsce, aby pozbyć się napięcia i bólu, odzyskać siły oraz poczuć prawdziwą troskę o swoje ciało.
@@ -56,7 +54,40 @@
   </p>
   <script type="text/javascript" src="https://booksy.com/widget/code.js?id=303989&country=pl&lang=pl"></script>
 
-  <div class="person">
+<div class="container">
+<div class="carousel">
+    <div class="slides-wrapper" id="slides">
+        <div class="slide" style="background-image: url('assets/0.jpg')">
+          <h2 class="title">Aleksandr Kuchta</h2>
+          <div class="slide-content">
+            <p class="description">zapraszamy na masaz</p>
+            <button class="btn" onclick="window.open('https://booksy.com/pl-pl/303989_twoj-masazysta_masaz_21029_gdynia', '_blank')">Zarezerwuj</button>
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/111.jpg')">
+          <h2 class="title">Maksym Kuchta</h2>
+          <div class="slide-content">
+            <p class="description">zapraszamy na masaz</p>
+            <button class="btn" onclick="window.open('https://booksy.com/pl-pl/303989_twoj-masazysta_masaz_21029_gdynia', '_blank')">Zarezerwuj</button>
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/112.jpg')">
+          <h2 class="title">Tetiana Klimenko</h2>
+          <div class="slide-content">
+            <p class="description">zapraszamy na masaz</p>
+            <button class="btn" onclick="window.open('https://booksy.com/pl-pl/303989_twoj-masazysta_masaz_21029_gdynia', '_blank')">Zarezerwuj</button>
+          </div>
+        </div>
+      </div>
+
+<button class="arrow prev" id="prev">‹</button>
+<button class="arrow next" id="next">›</button>
+</div>
+
+<div class="controls" id="dots"></div>
+</div>
+
+  <!-- <div class="person">
     <div class="person-card">
       <img src="assets/tatiana.jpeg" alt="Tetiana Klimenko" class="about-img">
       <b>Tetiana Klimenko</b>
@@ -70,8 +101,7 @@
       <b>Maksym Kuchta</b>
     </div>
   </div>
-</section>
-</section>
+</section> -->
 
   <section id="services">
     <h2>Usługi i ceny</h2>
@@ -252,75 +282,57 @@
     <div class="gallery-container">
       <div class="scroll-arrow scroll-left">‹</div>
       <div class="scroll-arrow scroll-right">›</div>
-      
       <div class="gallery-scroll">
         <div class="gallery-item" data-index="0">
           <img src="assets/0.jpg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="1">
           <img src="assets/1.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="2">
           <img src="assets/2.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="3">
           <img src="assets/3.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="4">
           <img src="assets/4.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="5">
           <img src="assets/5.jpg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="6">
           <img src="assets/6.jpeg" alt="Масажна процедура" loading="lazy">
-          <div class="zoom-icon">🔍</div>
         </div>
         <div class="gallery-item" data-index="7">
           <img src="assets/7.jpeg" alt="Масажна процедура" loading="lazy">
-          <div class="zoom-icon">🔍</div>
         </div>
         <div class="gallery-item" data-index="8">
           <img src="assets/8.jpeg" alt="Масажна процедура" loading="lazy">
-          <div class="zoom-icon">🔍</div>
         </div>
         <div class="gallery-item" data-index="9">
           <img src="assets/9.jpeg" alt="Масажна процедура" loading="lazy">
-          <div class="zoom-icon">🔍</div>
         </div>
         <div class="gallery-item" data-index="10">
           <img src="assets/10.jpeg" alt="Масажна процедура" loading="lazy">
-          
         </div>
         <div class="gallery-item" data-index="11">
           <img src="assets/11.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="12">
           <img src="assets/12.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="13">
           <img src="assets/13.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="14">
           <img src="assets/14.jpeg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="15">
           <img src="assets/15.jpg" alt="Масажна процедура" loading="lazy">
-
         </div>
         <div class="gallery-item" data-index="16">
           <img src="assets/16.jpg" alt="Масажна процедура" loading="lazy">
-
         </div>
       </div>
     </div>
@@ -338,15 +350,13 @@
     </div>
   </div>
 
-  
-
 <section id="contacts">
   <h2>Kontakt</h2>
   
   <div class="contact-box">
-    <p><strong>Adres:</strong> <span>ul. Morska 20, Gdynia</span></p>
-    <p><strong>Godziny pracy:</strong> <span>Codziennie 10:00–21:30</span></p>
-    <p><strong>Telefon:</strong> <span>519 384 960</span></p>
+    <p><strong>Adres:</strong> <a href="https://www.google.com/maps/place/Morska+20,+81-333+Gdynia">ul. Morska 20, Gdynia</a> </p>
+    <p><strong>Godziny pracy:</strong> <a href="https://www.google.com/maps/place/Morska+20,+81-333+Gdynia">Codziennie 10:00–21:30</a> </p>
+    <p><strong>Telefon:</strong> <a href="tel:519384960">519 384 960</a></p>
     <p><strong>Email:</strong> <a href="mailto:gdyniatwojmasazysta@gmail.com">gdyniatwojmasazysta@gmail.com</a></p>
   </div>
 
@@ -360,7 +370,6 @@
     <p>Nasze social media</p>
     <div class="social-buttons">
       <button onclick="window.open('https://www.facebook.com/profile.php?id=100090574873820', '_blank')">Facebook</button>
-      <button onclick="window.open('https://www.instagram.com/', '_blank')">Instagram</button>
       <button onclick="window.open('https://booksy.com/pl-pl/303989_twoj-masazysta_masaz_21029_gdynia', '_blank')">Booksy</button>
     </div>
   </div>
