@@ -1,4 +1,3 @@
-
 :root {
   --accent: #e3bd82;
   --accent-dark: #52796f;
@@ -130,16 +129,13 @@ nav button:hover::after {
   position: relative;
   z-index: 2;
   text-justify: inter-word; 
-  text-indent: 2em;
 }
 
 .about p {
   position: relative;
   z-index: 2;
   text-justify: inter-word; 
-  text-indent: 2em;
   text-align: justify;
-
 }
 
 
@@ -926,6 +922,9 @@ html {
   margin-bottom: 25px;
   max-width: 90%;
 }
+
+
+
 
 .btn {
   background: #233d00;
