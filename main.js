@@ -31,6 +31,10 @@ const prices = {
   ]
 };
 
+const actions = {
+  "actions": "Promocja: -20% na wszystkie masaże do końca października! 🎉\nPakiety i promocje – zapytaj telefonicznie 519 384 960"
+};
+
 // --- Ініціалізація ---
 document.addEventListener('DOMContentLoaded', () => {
   initPrices();
@@ -46,8 +50,17 @@ function initPrices() {
   document.querySelectorAll(".service").forEach(service => {
     const key = service.dataset.service;
     const list = service.querySelector(".price-list");
-    const items = prices[key];
+    const actionText = actions["actions"];
 
+    // Додати акцію, якщо є
+    if (actionText) {
+      const actionEl = document.createElement('div');
+      actionEl.className = 'actions';
+      actionEl.textContent = actionText;
+      service.appendChild(actionEl);
+    }
+
+    const items = prices[key];
     if (!items || !list) return;
 
     list.innerHTML = items.map(({ time, price }) => `
