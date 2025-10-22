@@ -32,7 +32,7 @@ const prices = {
 };
 
 const actions = {
-  "actions": "Promocja: -20% na wszystkie masaże do końca października! 🎉\nPakiety i promocje – zapytaj telefonicznie 519 384 960"
+  "actions": "Promocja: -20% na wszystkie masaże do końca października! 🎉 Pakiety i promocje – zapytaj telefonicznie 519 384 960"
 };
 
 // --- Ініціалізація ---
