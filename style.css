@@ -644,32 +644,28 @@ html {
 }
 
 .price-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 12px;
   background: rgba(227, 189, 130, 0.05);
   border-radius: 8px;
-  font-size: 0.95rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  align-items: center;
+  font-size: 1rem;
 }
 
-.time {
-  color: var(--accent);
-  font-weight: 600;
-}
+
 
 .old-price {
   text-decoration: line-through;
-  color: #999;
-  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
 }
 
 .new-price {
   color: var(--accent);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
 }
-
 .actions {
   margin-top: 20px;
   padding: 15px;
