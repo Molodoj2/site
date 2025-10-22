@@ -839,18 +839,3 @@ html {
   font-weight: 600;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .gallery-item {
-    flex: 0 0 200px;
-    height: 180px;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .carousel {
-    height: 300px;
-  }
-}
