@@ -23,31 +23,34 @@
 </head>
 
 <body>
-<header>
-  <div class="header-content">
-    <div class="logo" onclick="location.href='#home'">
-      <img src="assets/logo.png" alt="Logo">
-      <span>Twój Masażysta Gdynia</span>
+  <header>
+    <div class="header-content">
+      <div class="logo" onclick="location.href='#home'">
+        <img src="assets/logo.png" alt="Logo">
+        <span>Twój Masażysta</span>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav id="menu">
+        <button onclick="navigateTo('#home')">Główna</button>
+        <button onclick="navigateTo('#about')">O nas</button>
+        <button onclick="navigateTo('#services')">Usługi</button>
+        <button onclick="navigateTo('#reviews')">Opinie</button>
+        <button onclick="navigateTo('#gallery')">Galeria</button>
+        <button onclick="navigateTo('#contacts')">Kontakt</button>
+      </nav>
     </div>
-    <nav>
-      <button onclick="location.href='#home'">Główna</button>
-      <button onclick="location.href='#about'">O nas</button>
-      <button onclick="location.href='#services'">Usługi</button>
-      <button onclick="location.href='#reviews'">Opinie</button>
-      <button onclick="location.href='#gallery'">Galeria</button>
-      <button onclick="location.href='#contacts'">Kontakt</button>
-    </nav>
-  </div>
-</header>
-
+  </header>
+  
 <section id="home" class="hero">
   <img src="assets/logo.png" alt="Twój Masażysta">
   <h2>Twój Masażysta Gdynia</h2>
   <h3>Profesjonalny masaż dopasowany do Twoich potrzeb</h3>
   <script type="text/javascript" src="https://booksy.com/widget/code.js?id=303989&country=pl&lang=pl"></script>
 </section>
-
-
 
 <section class="about" id="about">
   <h2>O nas</h2>
@@ -91,7 +94,6 @@
 
 <section id="services">
   <h2>Usługi i ceny</h2>
-
   <div class="services-grid">
     <div class="service" data-service="masaz-normal-price">
       <h3>Masaż Klasyczny</h3>
@@ -334,19 +336,19 @@
   <h2>Kontakt</h2>
   
   <div class="contact-box">
-    <p><strong>Adres:</strong> <a href="https://www.google.com/maps/place/Morska+20,+81-333+Gdynia">ul. Morska 20, Gdynia</a> </p>
-    <p><strong>Godziny pracy:</strong> <a href="https://www.google.com/maps/place/Morska+20,+81-333+Gdynia">Codziennie 10:00–21:30</a> </p>
+    <p><strong>Adres:</strong> <a href="https://maps.app.goo.gl/9mfvKtdtnaEhTJS19">ul. Morska 20, Gdynia</a> </p>
+    <p><strong>Godziny pracy:</strong> <a href="https://maps.app.goo.gl/9mfvKtdtnaEhTJS19">Codziennie 10:00–21:30</a> </p>
     <p><strong>Telefon:</strong> <a href="tel:519384960">519 384 960</a></p>
     <p><strong>Email:</strong> <a href="mailto:gdyniatwojmasazysta@gmail.com">gdyniatwojmasazysta@gmail.com</a></p>
   </div>
   <div class="contact-box">
     <h3>Dojazd komunikacją miejską</h3>
-    <p><strong>SKM Gdynia Stocznia–UMorski</strong></p>
-    <p><strong>Gdynia Stocznia-UMorski:</strong> 22, 25, 26, 27, 28, 30, 34, 105, 109, 125, 141, 305, 650, 710, S, W <br>Nocne: N20, N30, N40</p>
-    <p><strong>Bpa Okoniewskiego:</strong> 22, 25, 26, 27, 28, 30, 34, 105, 109, 125, 141, 305, 710 <br>Nocne: N20, N30, N40</p>
+    <p onclick="window.open('https://maps.app.goo.gl/WKwQNZjVkvWZpjt57', '_blank')" ><strong>SKM Gdynia Stocznia–UMorski</strong></p>
+    <p onclick="window.open('https://maps.app.goo.gl/3urgYSNEMhzLJH2z5', '_blank')"><strong>Gdynia Stocznia:</strong>autobusy 34 105 109 125 141 305 650 S W <br>trolejbusy 22 25 26 27 28 30 710 <br>Nocne: N20 N30 N40</p>
+    <p onclick="window.open('https://maps.app.goo.gl/ZjEXnin6MzXZPznt9', '_blank')"><strong>Bpa Okoniewskiego:</strong>autobusy 34 105 109 125 141 305<br>trolejbusy 22 25 26 27 28 30 710 <br>Nocne: N20 N30 N40</p>
 
     <h3>Dojazd samochodem</h3>
-    <p><strong>Parking:</strong> Darmowy parking dostępny na terenie</p>
+    <p onclick="window.open('https://maps.app.goo.gl/9mfvKtdtnaEhTJS19', '_blank')"><strong>Darmowy parking dostępny na terenie</strong></p>
   </div>
   <div class="contacts-map">
     <iframe
