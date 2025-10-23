@@ -24,11 +24,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+
 /* Sections */
 section {
   max-width: 1300px;
