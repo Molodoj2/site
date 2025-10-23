@@ -2,33 +2,14 @@
 const DISCOUNT = 0.2; // 20%
 
 const prices = {
-  "masaz-normal-price": [
-    { time: "1h", price: 150 },
-    { time: "1h 30min", price: 200 }
-  ],
-  "masaz-price-40min": [
-    { time: "40min", price: 120 },
-    { time: "1h", price: 150 }
-  ],
-  "masaz-dla-dwojga": [
-    { time: "1h", price: 300 }
-  ],
-  "masaz-stop": [
-    { time: "40min", price: 100 },
-    { time: "1h", price: 140 }
-  ],
-  "masaz-twarzy": [
-    { time: "1h 30min", price: 200 }
-  ],
-  "masaz-price-1h": [
-    { time: "1h", price: 150 }
-  ],
-  "masaz-glowy": [
-    { time: "30min", price: 90 }
-  ],
-  "masaz-stop-40min": [
-    { time: "30min", price: 90 }
-  ]
+  "masaz-normal-price": [{ time: "1h", price: 150 }, { time: "1h 30min", price: 200 }],
+  "masaz-price-40min": [{ time: "40min", price: 120 }, { time: "1h", price: 150 }],
+  "masaz-dla-dwojga": [{ time: "1h", price: 300 }],
+  "masaz-stop": [{ time: "40min", price: 100 }, { time: "1h", price: 140 }],
+  "masaz-twarzy": [{ time: "1h 30min", price: 200 }],
+  "masaz-price-1h": [{ time: "1h", price: 150 }],
+  "masaz-glowy": [{ time: "30min", price: 90 }],
+  "masaz-stop-40min": [{ time: "30min", price: 90 }]
 };
 
 const actions = {
@@ -43,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollAnimations();
   initSlider();
+  initMenu();
+  initReviews();
 });
 
 // --- Ціни ---
@@ -50,10 +33,9 @@ function initPrices() {
   document.querySelectorAll(".service").forEach(service => {
     const key = service.dataset.service;
     const list = service.querySelector(".price-list");
-    const actionText = actions["actions"];
+    const actionText = actions.actions;
 
-    // Додати акцію, якщо є
-    if (actionText) {
+    if (actionText && !service.querySelector('.actions')) {
       const actionEl = document.createElement('div');
       actionEl.className = 'actions';
       actionEl.textContent = actionText;
@@ -90,17 +72,20 @@ function initGallery() {
   if (!galleryScroll || !galleryItems.length || !lightbox) return;
 
   const images = galleryItems.map(i => i.querySelector('img')?.src).filter(Boolean);
+  if (!images.length) return;
+
   let currentIndex = 0;
   const scrollBy = 425;
-  totalSpan.textContent = images.length;
+  if (totalSpan) totalSpan.textContent = images.length;
 
   const showImage = i => {
     currentIndex = (i + images.length) % images.length;
-    lightboxImg.src = images[currentIndex];
-    currentSpan.textContent = currentIndex + 1;
+    if (lightboxImg) lightboxImg.src = images[currentIndex];
+    if (currentSpan) currentSpan.textContent = currentIndex + 1;
   };
 
   const toggleLightbox = (show, i = 0) => {
+    if (!lightbox) return;
     if (show) {
       showImage(i);
       lightbox.classList.add('visible');
@@ -114,7 +99,6 @@ function initGallery() {
     }
   };
 
-  // Події
   galleryItems.forEach((item, i) => item.addEventListener('click', () => toggleLightbox(true, i)));
   closeBtn?.addEventListener('click', () => toggleLightbox(false));
   prevBtn?.addEventListener('click', () => showImage(currentIndex - 1));
@@ -158,7 +142,7 @@ function initSmoothScroll() {
   document.querySelectorAll('nav button[onclick*="#"], .logo[onclick*="#"]').forEach(el => {
     el.addEventListener('click', e => {
       e.preventDefault();
-      const match = el.getAttribute('onclick').match(/#([\w-]+)/);
+      const match = el.getAttribute('onclick')?.match(/#([\w-]+)/);
       const target = match && document.getElementById(match[1]);
       if (!target) return;
 
@@ -201,15 +185,12 @@ function initSlider() {
   const nextBtn = document.getElementById('next');
   const dotsContainer = document.getElementById('dots');
 
-  if (!slides || !slidesArray.length) return;
+  if (!slides || !slidesArray.length || !dotsContainer) return;
 
   let current = 0;
   const total = slidesArray.length;
 
-  dotsContainer.innerHTML = slidesArray.map((_, i) =>
-    `<div class="dot${i === 0 ? ' active' : ''}"></div>`
-  ).join("");
-
+  dotsContainer.innerHTML = slidesArray.map((_, i) => `<div class="dot${i === 0 ? ' active' : ''}"></div>`).join("");
   const dots = [...dotsContainer.children];
 
   const update = () => {
@@ -239,3 +220,58 @@ function initSlider() {
 
   setInterval(next, 5000);
 }
+
+// --- Меню ---
+function initMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  if (!hamburger || !menu) return;
+
+  const toggleMenu = () => {
+    hamburger.classList.toggle('active');
+    menu.classList.toggle('active');
+  };
+
+  const closeMenu = () => {
+    hamburger.classList.remove('active');
+    menu.classList.remove('active');
+  };
+
+  hamburger.addEventListener('click', toggleMenu);
+  menu.querySelectorAll('button').forEach(btn => btn.addEventListener('click', closeMenu));
+
+  document.addEventListener('click', e => {
+    if (!hamburger.contains(e.target) && !menu.contains(e.target)) closeMenu();
+  });
+}
+
+function navigateTo(hash) {
+  location.href = hash;
+  const menu = document.getElementById('menu');
+  const hamburger = document.getElementById('hamburger');
+  if (menu && hamburger) {
+    menu.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+}
+// --- Додати кнопку "Вгору" ---
+function initScrollToTop() {
+  const btn = document.createElement('button');
+  btn.id = 'scroll-to-top';
+  btn.textContent = '↑';
+  document.body.appendChild(btn);
+
+  // Показ кнопки після прокрутки
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.pageYOffset > 300);
+  });
+
+  // Плавний скрол вгору
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initScrollToTop();
+});
