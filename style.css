@@ -69,7 +69,10 @@ p {
   flex-grow: 1;
   text-justify: inter-word; 
   text-align: justify;
+}
 
+.contact-box p {
+  color: white
 }
 
 a {
@@ -411,17 +414,15 @@ html {
   
   .contact-box p {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     gap: 10px;
+    color: white
   }
   
   .contact-box strong {
     min-width: unset;
   }
 
-  #reviews h2 {
-    font-size: 2em;
-  }
 
   .reviews-grid {
       grid-template-columns: 1fr;
@@ -437,10 +438,7 @@ html {
     width: 200px;
     height: 150px;
   }
-  
-  h2 {
-    font-size: 1.8rem;
-  }
+
   
   .service {
     padding: 24px;
@@ -681,7 +679,24 @@ html {
 #gallery {
   margin-bottom: 80px;
 }
+.gallery-container {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
 
+.gallery-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+  padding: 20px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
 .gallery-container {
   position: relative;
   display: flex;
@@ -733,6 +748,19 @@ html {
   object-fit: cover;
 }
 
+.gallery-item {
+  position: relative;
+  flex: 0 0 min(85vw, 400px);
+  height: clamp(250px, 55vh, 500px);
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #fff;
+  scroll-snap-align: center;
+}
+
 .scroll-arrow {
   flex: 0 0 50px;
   width: 50px;
@@ -747,8 +775,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 }
-
 .scroll-arrow:hover {
   background: rgba(227, 189, 130, 0.1);
   transform: scale(1.1);
@@ -834,4 +862,3 @@ html {
   border-radius: 20px;
   font-weight: 600;
 }
-
