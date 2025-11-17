@@ -5,6 +5,7 @@ const prices = {
   "masaz-normal-price": [{ time: "1h", price: 150 }, { time: "1h 30min", price: 200 }],
   "masaz-price-40min": [{ time: "40min", price: 120 }, { time: "1h", price: 150 }],
   "masaz-dla-dwojga": [{ time: "1h", price: 300 }],
+  "masaz-dla-dwojga 2": [{ time: "1h 30min", price: 400 }],
   "masaz-stop": [{ time: "40min", price: 100 }, { time: "1h", price: 140 }],
   "masaz-twarzy": [{ time: "1h 30min", price: 200 }],
   "masaz-price-1h": [{ time: "1h", price: 150 }],
