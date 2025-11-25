@@ -9,7 +9,8 @@ const prices = {
   "masaz-twarzy": [{ time: "1h 30min", price: 200 }],
   "masaz-price-1h": [{ time: "1h", price: 150 }],
   "masaz-glowy": [{ time: "30min", price: 90 }],
-  "masaz-stop-40min": [{ time: "30min", price: 90 }]
+  "masaz-stop-40min": [{ time: "30min", price: 90 }],
+  "TAILORED": [{ time: "1h", price: 150 }, { time: "1h 30min", price: 200 }, { time: "2h", price: 300 }]
 };
 
 const actions = {
