@@ -91,10 +91,7 @@
     padding: 60px 20px;
   }
   
-  /* General Sections */
-  section {
-    margin: 60px auto;
-  }
+
   
   /* Services */
   .services-list {
@@ -270,11 +267,7 @@
     padding-top: 30px;
   }
   
-  /* Sections */
-  section {
-    margin: 50px auto;
-    padding: 0 15px;
-  }
+
 }
 
 /* ==================== MOBILE & TABLET (481px - 768px) ==================== */
@@ -448,10 +441,7 @@
     min-height: 48px;
   }
   
-  /* Adjust spacing */
-  section {
-    margin: 60px auto;
-  }
+
   
   /* Services */
   .services-list {

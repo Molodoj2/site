@@ -31,6 +31,7 @@ section {
   padding: 0 clamp(20px, 5vw, 60px);
 }
 
+
 h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--accent);
