@@ -1,0 +1,114 @@
+:root {
+  --accent: #e3bd82;
+  --accent-dark: #52796f;
+  --background: #1a2902;
+  --surface: rgba(255, 255, 255, 0.05);
+  --card: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f4;
+  --radius: 16px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 28px rgba(0,0,0,0.4);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.6);
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #233d00;
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+section {
+  max-width: 1300px;
+  margin: 80px auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--accent);
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 2px;
+}
+
+h3 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+p {
+  position: relative;
+  z-index: 2;
+  flex-grow: 1;
+  text-justify: inter-word; 
+  text-align: justify;
+}
+
+.contact-box p {
+  color: white
+}
+
+.contact-box p {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 30px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(227, 189, 130, 0.1);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #1a2902;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f4d9a6;
+}

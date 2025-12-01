@@ -1,0 +1,500 @@
+/* ==================== SMALL MOBILE (up to 480px) ==================== */
+@media (max-width: 480px) {
+  .logo span {
+    font-size: 1rem;
+  }
+  
+  .hero img {
+    width: 200px;
+    height: 150px;
+  }
+  
+  .service {
+    padding: 24px;
+  }
+  
+  .gallery-item {
+    flex: 0 0 85vw;
+    height: 250px;
+  }
+  
+  .scroll-indicator {
+    font-size: 0.8rem;
+  }
+  
+  #close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
+
+/* ==================== MOBILE & TABLET (up to 768px) ==================== */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  header {
+    padding: 15px 20px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-right: auto;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background: rgba(26, 41, 2, 0.98);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    border-bottom: 1px solid rgba(227, 189, 130, 0.2);
+  }
+
+  nav.active {
+    max-height: 400px;
+  }
+
+  nav button {
+    width: 100%;
+    text-align: left;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(227, 189, 130, 0.1);
+  }
+
+  nav button::after {
+    display: none;
+  }
+
+  nav button:hover {
+    background: rgba(227, 189, 130, 0.15);
+  }
+  
+  /* Hero Section */
+  .hero {
+    min-height: 70vh;
+    padding: 60px 20px;
+  }
+  
+  /* General Sections */
+  section {
+    margin: 60px auto;
+  }
+  
+  /* Services */
+  .services-list {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Team/Person */
+  .person {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+  
+  /* Contact */
+  .contact-box p {
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+    color: white;
+  }
+  
+  .contact-box strong {
+    min-width: unset;
+  }
+
+  /* Reviews */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Gallery Navigation */
+  .scroll-left,
+  .scroll-right {
+    display: none;
+  }
+}
+
+/* ==================== TABLETS (481px - 1024px) ==================== */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .gallery-item {
+    flex: 0 0 45vw;
+    height: 320px;
+  }
+  
+  .gallery-scroll {
+    gap: 16px;
+  }
+}
+
+/* ==================== DESKTOPS (1025px and up) ==================== */
+@media (min-width: 1025px) {
+  .gallery-item {
+    flex: 0 0 350px;
+    height: 400px;
+  }
+  
+  .scroll-arrow {
+    display: flex;
+  }
+}
+
+/* ==================== SMALL MOBILE (up to 480px) ==================== */
+@media (max-width: 480px) {
+  /* Logo */
+  .logo span {
+    font-size: 0.9rem;
+  }
+  
+  /* Hero */
+  .hero {
+    min-height: 60vh;
+    padding: 40px 15px;
+  }
+  
+  .hero img {
+    width: 180px;
+    height: 135px;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  /* Services */
+  .service {
+    padding: 20px;
+  }
+  
+  .service h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Gallery */
+  .gallery-item {
+    flex: 0 0 90vw;
+    height: 220px;
+  }
+  
+  .scroll-indicator {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+  }
+  
+  /* Modal */
+  #close {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* Contact */
+  .contact-box {
+    padding: 25px 20px;
+    margin: 40px auto;
+    gap: 18px;
+  }
+  
+  .contact-box p {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .contacts-map {
+    margin: 40px auto;
+    border-radius: 12px;
+  }
+  
+  .contacts-map iframe {
+    height: 300px;
+  }
+  
+  /* Social */
+  .social {
+    gap: 20px;
+  }
+  
+  .social img {
+    width: 55px;
+    height: 55px;
+  }
+  
+  /* Scroll to top */
+  #scroll-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    line-height: 45px;
+  }
+  
+  /* Invite */
+  .invite {
+    font-size: 1.1rem;
+    margin: 40px 0 25px;
+    padding: 15px;
+  }
+  
+  .invite::before,
+  .invite::after {
+    margin: 0 10px;
+  }
+  
+  /* Copyright */
+  .copyright {
+    font-size: 0.85rem;
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+  
+  /* Sections */
+  section {
+    margin: 50px auto;
+    padding: 0 15px;
+  }
+}
+
+/* ==================== MOBILE & TABLET (481px - 768px) ==================== */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Header & Navigation */
+  header {
+    padding: 18px 25px;
+  }
+  
+  .header-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    background: rgba(26, 41, 2, 0.98);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    border-bottom: 1px solid rgba(227, 189, 130, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  nav.active {
+    max-height: 450px;
+  }
+
+  nav button {
+    width: 100%;
+    text-align: left;
+    padding: 18px 25px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(227, 189, 130, 0.1);
+    background: transparent;
+  }
+
+  nav button::after {
+    display: none;
+  }
+
+  nav button:hover {
+    background: rgba(227, 189, 130, 0.15);
+  }
+  
+  /* Hero */
+  .hero {
+    min-height: 65vh;
+    padding: 50px 25px;
+  }
+  
+  .hero img {
+    width: 220px;
+    height: 165px;
+  }
+  
+  /* Gallery */
+  .gallery-item {
+    flex: 0 0 60vw;
+    height: 280px;
+  }
+  
+  /* Contact */
+  .contacts-map iframe {
+    height: 350px;
+  }
+  
+  .social img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ==================== TABLET (769px - 1024px) ==================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* General Sections */
+  section {
+    margin: 70px auto;
+  }
+  
+  /* Services */
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  /* Team/Person */
+  .person {
+    grid-template-columns: 1fr 2fr;
+    padding: 35px;
+  }
+  
+  /* Gallery */
+  .gallery-item {
+    flex: 0 0 45vw;
+    height: 320px;
+  }
+  
+  .gallery-scroll {
+    gap: 18px;
+  }
+
+  /* Reviews */
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Contact */
+  .contact-box {
+    padding: 35px;
+  }
+  
+  .contacts-map iframe {
+    height: 400px;
+  }
+}
+
+/* ==================== DESKTOPS (1025px and up) ==================== */
+@media (min-width: 1025px) {
+  .gallery-item {
+    flex: 0 0 350px;
+    height: 400px;
+  }
+  
+  .scroll-arrow {
+    display: flex;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  /* Hover effects only on desktop */
+  .contacts-map:hover {
+    transform: translateY(-5px);
+  }
+  
+  .social img:hover {
+    transform: scale(1.2) translateY(-10px) rotate(5deg);
+  }
+}
+
+/* ==================== COMMON MOBILE FIXES (up to 768px) ==================== */
+@media (max-width: 768px) {
+  /* Disable hover effects on touch devices */
+  .contacts-map:hover {
+    transform: none;
+  }
+  
+  .social img:hover {
+    transform: none;
+  }
+  
+  /* Touch-friendly tap states */
+  .social img:active {
+    transform: scale(0.92);
+  }
+  
+  /* Better touch targets */
+  nav button {
+    min-height: 48px;
+  }
+  
+  /* Adjust spacing */
+  section {
+    margin: 60px auto;
+  }
+  
+  /* Services */
+  .services-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* Team/Person */
+  .person {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    text-align: center;
+  }
+  
+  /* Contact */
+  .contact-box p {
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+  }
+  
+  .contact-box strong {
+    min-width: unset;
+  }
+
+  /* Reviews */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* Gallery Navigation */
+  .scroll-left,
+  .scroll-right {
+    display: none;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  * {
+    max-width: 100%;
+  }
+}

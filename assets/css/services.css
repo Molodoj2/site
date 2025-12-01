@@ -1,0 +1,67 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.service {
+  background: var(--card);
+  border: 1px solid rgba(227, 189, 130, 0.2);
+  padding: 30px;
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(30px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.service:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+
+.price-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.price-item {
+  padding: 12px;
+  background: rgba(227, 189, 130, 0.05);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  align-items: center;
+  font-size: 1rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  text-align: center;
+}
+
+.new-price {
+  color: var(--accent);
+  font-weight: 600;
+  text-align: left;
+}
+.actions {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(227, 189, 130, 0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
