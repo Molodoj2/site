@@ -1,5 +1,6 @@
 // --- Константи ---
-const DISCOUNT = 0.2; // 20%
+const DISCOUNT_ACTIVE = false; // <-- ставиш true або false
+const DISCOUNT = DISCOUNT_ACTIVE ? 0.2 : 0;
 
 const prices = {
   "masaz-normal-price": [{ time: "1h", price: 150 }, { time: "1h 30min", price: 200 }],
@@ -10,11 +11,13 @@ const prices = {
   "masaz-price-1h": [{ time: "1h", price: 150 }],
   "masaz-glowy": [{ time: "30min", price: 90 }],
   "masaz-stop-40min": [{ time: "30min", price: 90 }],
-  "TAILORED": [{ time: "1h", price: 150 }, { time: "1h 30min", price: 200 }, { time: "2h", price: 300 }]
+  "TAILORED": [{ time: "1h", price: 150 }, { time: "1h 30min", price: 200 }, { time: "2h", price: 300 }],
+  "bambusami": [{ time: "1h", price: 230 }],
+  "masaż relaksacyjny +": [{ time: "1h 15min", price: 170 }],
 };
 
 const actions = {
-  "actions": "Promocja: -20% na wszystkie masaże do końca Listopada! 🎉 Pakiety i promocje – zapytaj telefonicznie 519 384 960"
+  "actions": "🎉 Pakiety i promocje – zapytaj telefonicznie 519 384 960"
 };
 
 // --- Ініціалізація ---
@@ -46,14 +49,20 @@ function initPrices() {
     const items = prices[key];
     if (!items || !list) return;
 
-    list.innerHTML = items.map(({ time, price }) => `
-      <div class="price-item">
-        <span class="old-price">${price.toFixed(2)} zł</span>
-        <span class="new-price">${(price * (1 - DISCOUNT)).toFixed(2)} zł</span>
-        <span class="time">${time}</span>
-      </div>
-    `).join("");
-  });
+    list.innerHTML = items.map(({ time, price }) => {
+      const discounted = price * (1 - DISCOUNT);
+
+      return `
+        <div class="price-item">
+          ${DISCOUNT_ACTIVE ? `<span class="old-price">${price.toFixed(2)} zł</span>` : ""}
+          <span class="${DISCOUNT_ACTIVE ? 'new-price' : 'price'}">
+            ${discounted.toFixed(2)} zł
+          </span>
+          <span class="time">${time}</span>
+        </div>
+      `;
+    }).join("");
+      });
 }
 
 // --- Галерея ---
