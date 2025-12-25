@@ -21,7 +21,8 @@ const actions = {
 };
 
 // --- Ініціалізація ---
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadServices();
   initPrices();
   initGallery();
   initHeaderScroll();
@@ -31,6 +32,49 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenu();
   initReviews();
 });
+
+// --- Завантаження та рендерування сервісів з JSON ---
+async function loadServices() {
+  try {
+    const response = await fetch('assets/data/services.json');
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.json();
+    const grid = document.getElementById('services-grid');
+    
+    if (!grid) {
+      console.warn('Grid контейнер не знайдено');
+      return;
+    }
+    
+    grid.innerHTML = data.services.map(service => {
+      const classList = `service ${service.clickable ? 'clickable' : ''}`;
+      return `
+        <div class="${classList}" data-service="${service.id}">
+          <h3>${service.name}</h3>
+          <p>${service.description}</p>
+          <div class="price-list"></div>
+        </div>
+      `;
+    }).join('');
+    
+    // Ініціалізуємо клік-обробник після рендерування
+    initServiceClicks();
+  } catch (error) {
+    console.error('Помилка завантаження сервісів:', error);
+  }
+}
+
+// --- Обробка кліків на сервіси ---
+function initServiceClicks() {
+  const bookingUrl = 'https://twojmasazystagdynia.booksy.com/a/';
+  const clickableServices = document.querySelectorAll('.service.clickable');
+  
+  clickableServices.forEach(service => {
+    service.addEventListener('click', () => {
+      window.open(bookingUrl, '_blank');
+    });
+  });
+}
 
 // --- Ціни ---
 function initPrices() {

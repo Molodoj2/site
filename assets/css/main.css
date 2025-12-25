@@ -113,3 +113,47 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #f4d9a6;
 }
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block; 
+  margin: 0 auto; 
+}
+
+.voucher {
+  width: 105mm;
+  height: 148mm;
+  padding: 12mm;
+
+  background-color: #233d00;
+  color: #ffffff;
+
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.qr {
+  background: #fff;
+  padding: 5mm;
+  width: 35mm;
+  height: 35mm;
+  margin-top: 10mm;
+}
+
+.voucher h3 {
+  margin-top: 0;
+}
+
+.section {
+  font-size: 13px;
+  margin-top: 10px;
+}
+

@@ -1,0 +1,160 @@
+{
+  "services": [
+    {
+      "id": "masaz-normal-price",
+      "name": "Masaż Klasyczny",
+      "description": "Tradycyjny masaż całego ciała, łagodzący napięcia i ulepszający krążenie krwi.",
+      "clickable": false
+    },
+    {
+      "id": "masaz-normal-price",
+      "name": "Masaż leczniczy",
+      "description": "To specjalny masaż, który pomaga, gdy coś boli - np. plecy, szyja albo ramiona. Masażysta uciska i rozciera napięte miejsca, żeby ból minął i ciało poczuło się lepiej. Działa jak lekarstwo - ale przez dotyk.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-40min",
+      "name": "Masaż leczniczy pleców",
+      "description": "Ten masaż jest tylko na plecy – kiedy są zmęczone, obolałe albo sztywne. Pomaga rozluźnić mięśnie, żeby było łatwiej się ruszać i nie bolało, np. po pracy przy biurku albo stresie.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-dla-dwojga",
+      "name": "Masaż dla dwojga",
+      "description": "Masaż dla dwóch osób w tym samym czasie i pokoju. Idealny na randkę, prezent albo wspólny relaks.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-normal-price",
+      "name": "Masaż klasyczny całościowy",
+      "description": "Zbalansowana regeneracja dla całego ciała. Łączy relaks i działanie lecznicze – klasyka, która nigdy nie zawodzi.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-normal-price",
+      "name": "Masaż klasyczny pleców",
+      "description": "Zadbaj o swoje plecy – zniweluj ból i napięcia, odzyskaj lekkość w ciele. Skoncentrowany relaks dla przeciążonych pleców. Doskonały po długim dniu pracy.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-stop",
+      "name": "Masaż stóp",
+      "description": "Odprężenie zaczyna się od stóp! Masaż, który przynosi ulgę całemu ciału.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-twarzy",
+      "name": "Masaż klasyczny z masażem twarzy",
+      "description": "Kompleksowy zabieg łączący klasyczny masaż całego ciała z relaksującym masażem twarzy. Doskonały wybór dla osób szukających odprężenia, redukcji napięć mięśniowych oraz poprawy kondycji skóry. Ciało odpoczywa – twarz promienieje. 🌿✨",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-40min",
+      "name": "Masaż klasyczny twarzy",
+      "description": "Luksusowy zabieg, który wygładza, rozświetla i relaksuje. Twoja twarz Ci podziękuje!",
+      "clickable": true
+    },
+    {
+      "id": "masaz-normal-price",
+      "name": "Drenaż limfatyczny całe ciało",
+      "description": "Usuń toksyny, zlikwiduj obrzęki, poczuj się lekko i świeżo!",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-1h",
+      "name": "Masaż sportowy",
+      "description": "Dla aktywnych i sportowców – regeneracja, która przyspiesza powrót do formy.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-normal-price",
+      "name": "Masaż sportowy z Poizometryczną relaksacją mięśni",
+      "description": "Masaż wspomagający regenerację mięśni z techniką poizometrycznej relaksacji, która skutecznie rozluźnia głęboko napięte partie ciała. Idealny dla osób aktywnych fizycznie, po treningu lub w celu poprawy zakresu ruchu i elastyczności mięśni.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-normal-price",
+      "name": "Masaż gorącymi kamieniami",
+      "description": "Ciepło kamieni w połączeniu z dotykiem – głęboki relaks i rozluźnienie mięśni.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-glowy",
+      "name": "Masaż indyjski głowy",
+      "description": "Masaż skóry głowy, karku i ramion. Pomaga na stres, bóle głowy i napięcia. Działa też dobrze na włosy.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-normal-price",
+      "name": "Masaż relaksacyjny z elementami Lomi Lomi",
+      "description": "Delikatny, płynny masaż inspirowany hawajską techniką Lomi Lomi. Wprowadza w głęboki stan relaksu, redukuje stres i napięcia w ciele. Długie, rytmiczne ruchy ramion i dłoni otulają ciało, przywracając harmonię duszy i ciała. Idealny na wyciszenie po intensywnym dniu.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-1h",
+      "name": "Masaż bańką chińską",
+      "description": "Masaż przy użyciu specjalnych gumowych baniek. Działa intensywnie – pomaga na cellulit, bóle pleców i napięcia.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-1h",
+      "name": "Masaż gorącą świecą",
+      "description": "Ciepły olejek ze świecy wmasowywany w ciało. Bardzo relaksujący i pachnący – jak rytuał spa.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-1h",
+      "name": "Masaż aromaterapeutyczny",
+      "description": "Relaksujący masaż z użyciem pachnących olejków. Ciało odpoczywa, a zapachy koją zmysły.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-stop-40min",
+      "name": "Refleksologia stóp",
+      "description": "Specjalny masaż punktów na stopach, które wpływają na całe ciało. Relaksuje i pomaga w różnych dolegliwościach.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-1h",
+      "name": "Masaż relaksacyjny całościowy",
+      "description": "Poczuj głęboki spokój i odprężenie. Idealny, by oderwać się od stresu i napięć codziennego życia.",
+      "clickable": true
+    },
+    {
+      "id": "masaz-price-1h",
+      "name": "Masaż miodem",
+      "description": "Naturalny detoks i regeneracja skóry. Masaż miodem działa oczyszczająco, poprawia krążenie i odżywia ciało dzięki właściwościom antybakteryjnym i nawilżającym miodu. Idealny dla osób zestresowanych, z przemęczoną skórą i napięciem w ciele. Skóra staje się gładka, jędrna i pełna blasku.",
+      "clickable": true
+    },
+    {
+      "id": "TAILORED",
+      "name": "Masaż TAILORED MASSAGE",
+      "description": "Kompliacja różnych rodzajów masażu podczas jednego zabiegu dostosowanego do potrzeb organizmu pacjenta. Masaż dopasowany do Ciebie. Masażysta wybiera najlepsze techniki, by pomóc Twojemu ciału dokładnie tam, gdzie trzeba.",
+      "clickable": true
+    },
+    {
+      "id": "bambusami",
+      "name": "Masaż bambusami",
+      "description": "Masaż bambusami to wyjątkowa technika, która łączy głęboki relaks z intensywnym działaniem na mięśnie. Specjalne, podgrzane pałeczki bambusowe pomagają rozluźnić napięcie, poprawić krążenie i modelować sylwetkę. To doskonały wybór dla osób, które czują spięcie, przemęczenie lub chcą poprawić jędrność skóry. Efekty: <br>✨ redukcja napięcia mięśniowego <br>✨ poprawa krążenia i drenaż limfatyczny <br>✨ wygładzenie i ujędrnienie skóry <br>✨ uczucie lekkości i głębokiego relaksu Dla kogo: <br>👉 idealny dla osób aktywnych fizycznie, z napięciem w plecach, nogach lub karku <br>👉 świetny wybór dla kobiet, które chcą ujędrnić ciało i poprawić jego kształt",
+      "clickable": true
+    },
+    {
+      "id": "masaż relaksacyjny +",
+      "name": "Masaż relaksacyjny + peeling gruboziarnisty",
+      "description": "Zabieg łączy relaksacyjny masaż całego ciała z intensywnym peelingiem gruboziarnistym. Peeling usuwa martwy naskórek, wygładza skórę i pobudza krążenie, a masaż odpręża mięśnie i redukuje stres. Efekty: gładka i odświeżona skóra, lekkość w ciele, pełen relaks.",
+      "clickable": true
+    },
+    {
+      "id": "masaż relaksacyjny +",
+      "name": "Masaż relaksacyjny + peeling średnioziarnisty",
+      "description": "Połączenie masażu relaksacyjnego i peelingu średnioziarnistego dla osób, które chcą jednocześnie oczyścić skórę i się odprężyć. Idealny balans między oczyszczaniem a delikatnością. Efekty: skóra miękka i promienna, ciało zrelaksowane, umysł wyciszony.",
+      "clickable": true
+    },
+    {
+      "id": "masaż relaksacyjny +",
+      "name": "Masaż relaksacyjny + peeling delikatny (cukrowy/sol)",
+      "description": "Zmysłowy masaż relaksacyjny w połączeniu z peelingiem delikatnym – cukrowym lub solnym z olejkami. Polecany dla skóry wrażliwej, potrzebującej odżywienia i nawilżenia. Efekty: jedwabista skóra, głęboki relaks, poprawa nastroju.",
+      "clickable": true
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Twój Masażysta Gdynia - Profesjonalny Masaż</title>
+  <link rel="icon" href="assets/photo/icons/Logo1.jpg" type="image/jpg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/personal.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+  <link rel="stylesheet" href="assets/css/reviews.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <link rel="stylesheet" href="assets/css/test.css">
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <header>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8996E8J8JQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8996E8J8JQ');
+  </script>
+
+    <div class="header-content">
+      <div class="logo" onclick="location.href='index.html'">
+        <img src="assets/photo/icons/logo.png" alt="Logo">
+        <span>Twój Masażysta</span>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav id="menu">
+        <button onclick="navigateTo('index.html')">Główna</button>
+        <button onclick="navigateTo('#about')">O nas</button>
+        <button onclick="navigateTo('#services')">Usługi</button>
+        <button onclick="navigateTo('#reviews')">Opinie</button>
+        <button onclick="navigateTo('#gallery')">Galeria</button>
+        <button onclick="navigateTo('#contacts')">Kontakt</button>
+        <button onclick="navigateTo('groupon.html')">Groupon Voucher</button>
+      </nav>
+    </div>
+  </header>
+
+
+
+<section id="services">
+    <button onclick="window.open('https://twojmasazystagdynia.booksy.com/a/', '_blank')">Rezerwuj online</button>
+    <button onclick="navigateTo('buy.html')">kupic voucher</button>
+
+  <h2>Usługi i ceny</h2>
+  <div class="services-grid" id="services-grid"></div>
+  <p class="actions">Pakiety i promocje – zapytaj telefonicznie +48519384960</p>
+</section>
+
+<section id="contacts">
+  <h2>Kontakt</h2>
+  <div class="contact-box">
+    <h3>Komunikacją</h3>
+    <p><strong>Adres</strong> <a href="https://maps.app.goo.gl/9mfvKtdtnaEhTJS19">ul. Morska 20, Gdynia</a> </p>
+    <p><strong>Godziny pracy</strong> <a href="https://maps.app.goo.gl/9mfvKtdtnaEhTJS19">Codziennie 10:00–21:30</a> </p>
+    <p><strong>Telefon</strong> <a href="tel:519384960">519 384 960 Aleksandr</a></p>
+    <p><strong>Email</strong> <a href="mailto:gdyniatwojmasazysta@gmail.com">gdyniatwojmasazysta@gmail.com</a></p>
+  </div>
+  <div class="contact-box">
+    <h3>Dojazd komunikacją miejską</h3>
+    <p><strong>SKM</strong> <a href="https://maps.app.goo.gl/WKwQNZjVkvWZpjt57">SKM Gdynia Stocznia–UMorski</a> </p>
+    <p><strong>Gdynia Stocznia</strong> <a href="https://maps.app.goo.gl/3urgYSNEMhzLJH2z5">34 105 109 125 141 305 650 S W 22 25 26 27 28 30 710</a> </p>
+    <p><strong>Bpa Okoniewskiego</strong> <a href="https://maps.app.goo.gl/P8fjtLrfEkt3imBr7">34 105 109 125 141 305 22 25 26 27 28 30 710</a> </p>
+    <p onclick="window.open('https://maps.app.goo.gl/9mfvKtdtnaEhTJS19')"><strong>Darmowy parking dostępny na terenie</strong></p>
+  </div>
+  <div class="contacts-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2339.804998932389!2d18.536!3d54.528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd0c3a1c0e0cbb%3A0x9a3bbf3adf9276f!2sMorska%2020%2C%2081-333%20Gdynia!5e0!3m2!1spl!2spl!4v1632936000000!5m2!1spl!2spl"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+
+  <h3>Nasze social media</h3>
+  <div class="social">
+    <img onclick="window.open('https://www.facebook.com/gdyniatwojmasazysta/', '_blank')" src="assets/photo/icons/facebook.png" alt="Facebook" loading="lazy">
+    <img onclick="window.open('https://www.instagram.com/gdyniatwojmasazysta/', '_blank')" src="assets/photo/icons/instagram.png" alt="Instagram" loading="lazy">
+    <img onclick="window.open('https://twojmasazystagdynia.booksy.com/a/', '_blank')" src="assets/photo/icons/Booksy.png" alt="Booksy" loading="lazy">
+  </div>
+  <p class="invite">Zapraszamy do kontaktu i rezerwacji wizyty!</p>
+  </section>
+  <footer>
+  <p class="copyright">&copy; 2025 Twój Masażysta. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+</body>
+</html>

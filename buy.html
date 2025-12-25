@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Twój Masażysta Gdynia - Profesjonalny Masaż</title>
+  <link rel="icon" href="assets/photo/icons/Logo1.jpg" type="image/jpg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/personal.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+  <link rel="stylesheet" href="assets/css/reviews.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <link rel="stylesheet" href="assets/css/test.css">
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <header>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8996E8J8JQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8996E8J8JQ');
+  </script>
+
+    <div class="header-content">
+      <div class="logo" onclick="location.href='index.html'">
+        <img src="assets/photo/icons/logo.png" alt="Logo">
+        <span>Twój Masażysta</span>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav id="menu">
+        <button onclick="navigateTo('index.html')">Główna</button>
+        <button onclick="navigateTo('#about')">O nas</button>
+        <button onclick="navigateTo('#services')">Usługi</button>
+        <button onclick="navigateTo('#reviews')">Opinie</button>
+        <button onclick="navigateTo('#gallery')">Galeria</button>
+        <button onclick="navigateTo('voucher.html')">Kontakt</button>
+        <button onclick="navigateTo('groupon.html')">Groupon Voucher</button>
+      </nav>
+    </div>
+  </header>
+
+    <section id="services">
+  <div class="service" data-service="masaz-dla-dwojga" onclick="window.open('https://twojmasazystagdynia.booksy.com/a/', '_blank')" style="cursor: pointer;">
+    <h3>Voucher na Masaż dla dwojga</h3>
+    <p>Masaż dla dwóch osób w tym samym czasie i pokoju. Idealny na randkę, prezent albo wspólny relaks.</p>
+    <div class="price-list"></div>
+  </div>
+  <h3>Czas</h3>
+  <p>Gmail</p>
+  <p>Dodaj do koszyka</p>
+  <p><br>Podaruj bliskiej osobie ukojenie ciała i ducha w rytmie balijskiej harmonii. Ten wyjątkowy masaż wywodzi się z indonezyjskiej wyspy Bali i łączy w sobie elementy akupresury, refleksologii, głaskania i rozciągania. W NUSA SPA czerpiemy z duchowej tradycji balijskiej terapii, której celem jest przywrócenie równowagi energetycznej, głęboki relaks i wsparcie naturalnych procesów regeneracji.</p>
+    
+<p><br>Jeżeli chcesz kupić kilka voucherów dla różnych osób - dodaj je jako osobne produkty do koszyka. Każdy voucher ma swój indywidualny kod do wykorzystania w naszych salonach</p>
+<p></p>
+<button id="sendMail">Надіслати лист</button>
+
+<script>
+document.getElementById("sendMail").addEventListener("click", () => {
+  const to = "example@gmail.com";
+  const subject = encodeURIComponent("Тема листа");
+  const body = encodeURIComponent("Текст листа");
+
+  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+});
+</script>
+
+</section>

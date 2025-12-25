@@ -18,7 +18,10 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+}
 
+.service.clickable {
+  cursor: pointer;
 }
 
 .service:hover {
@@ -51,6 +54,12 @@
 }
 
 .new-price {
+  color: var(--accent);
+  font-weight: 600;
+  text-align: left;
+}
+
+.price {
   color: var(--accent);
   font-weight: 600;
   text-align: left;
